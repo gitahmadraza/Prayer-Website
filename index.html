@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Holy Grace of Prayers</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7fafc;
+        }
+        .nav-link {
+            transition: color 0.3s, border-bottom-color 0.3s;
+        }
+        .nav-link.active {
+            color: #2c5282; /* Darker Blue */
+            border-bottom: 2px solid #2c5282;
+        }
+        .card {
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+        .content-section {
+            display: none;
+        }
+        .content-section.active {
+            display: block;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .prayer-card-image .overlay-text {
+            opacity: 0;
+            transition: opacity 0.3s ease-in-out;
+        }
+        .prayer-card-image:hover .overlay {
+            background-color: rgba(0, 0, 0, 0.6);
+        }
+        .prayer-card-image:hover .overlay-text {
+            opacity: 1;
+        }
+        .page-image {
+            transition: transform 0.3s ease-in-out;
+        }
+        .page-image:hover {
+            transform: scale(1.03);
+        }
+    </style>
+</head>
+<body class="bg-gray-50 text-gray-800">
+
+    <!-- Header and Navigation -->
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="#home" class="text-2xl font-bold text-gray-700" onclick="showPage('home')">Grace of Prayers</a>
+            <div class="hidden md:flex items-center space-x-6">
+                <a href="#home" class="nav-link text-gray-600 hover:text-gray-800" onclick="showPage('home')">Home</a>
+                <a href="#fajr" class="nav-link text-gray-600 hover:text-gray-800" onclick="showPage('fajr')">Fajr</a>
+                <a href="#dhuhr" class="nav-link text-gray-600 hover:text-gray-800" onclick="showPage('dhuhr')">Dhuhr</a>
+                <a href="#asr" class="nav-link text-gray-600 hover:text-gray-800" onclick="showPage('asr')">Asr</a>
+                <a href="#maghrib" class="nav-link text-gray-600 hover:text-gray-800" onclick="showPage('maghrib')">Maghrib</a>
+                <a href="#isha" class="nav-link text-gray-600 hover:text-gray-800" onclick="showPage('isha')">Isha</a>
+                <a href="#message" class="nav-link text-gray-600 hover:text-gray-800" onclick="showPage('message')">Message</a>
+            </div>
+            <button id="mobile-menu-button" class="md:hidden flex items-center">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7"></path></svg>
+            </button>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="#home" class="block py-2 px-4 text-sm hover:bg-gray-200" onclick="showPage('home')">Home</a>
+            <a href="#fajr" class="block py-2 px-4 text-sm hover:bg-gray-200" onclick="showPage('fajr')">Fajr</a>
+            <a href="#dhuhr" class="block py-2 px-4 text-sm hover:bg-gray-200" onclick="showPage('dhuhr')">Dhuhr</a>
+            <a href="#asr" class="block py-2 px-4 text-sm hover:bg-gray-200" onclick="showPage('asr')">Asr</a>
+            <a href="#maghrib" class="block py-2 px-4 text-sm hover:bg-gray-200" onclick="showPage('maghrib')">Maghrib</a>
+            <a href="#isha" class="block py-2 px-4 text-sm hover:bg-gray-200" onclick="showPage('isha')">Isha</a>
+            <a href="#message" class="block py-2 px-4 text-sm hover:bg-gray-200" onclick="showPage('message')">Message</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto px-6 py-8">
+
+        <!-- Home Page -->
+        <div id="home" class="content-section active">
+            <section class="text-center mb-12">
+                <h1 class="text-4xl font-bold mb-4">The Five Pillars of Daily Prayer</h1>
+                <p class="text-lg text-gray-600 max-w-3xl mx-auto">Salah (prayer) is the second pillar of Islam and a fundamental act of worship. It is a Muslim's direct connection to Allah, performed five times a day, providing rhythm to our lives and peace to our souls.</p>
+            </section>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Cards for Fajr, Dhuhr, Asr, Maghrib, Isha -->
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                    <a href="#fajr" onclick="showPage('fajr')" class="block prayer-card-image"><div class="relative"><img src="fajar.jpeg" alt="Fajr Prayer" class="w-full h-48 object-cover"><div class="overlay absolute inset-0 bg-black bg-opacity-40 transition-all duration-300 flex items-center justify-center"><h3 class="overlay-text text-white text-3xl font-bold">Fajr</h3></div></div></a>
+                    <div class="p-6"><h4 class="text-xl font-bold mb-2">Fajr (Dawn Prayer)</h4><p class="text-gray-600 mb-4">The first prayer, signifying a fresh start at the break of dawn.</p><a href="#fajr" onclick="showPage('fajr')" class="text-blue-600 hover:underline font-semibold">Learn More &rarr;</a></div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <a href="#dhuhr" onclick="showPage('dhuhr')" class="block prayer-card-image"><div class="relative"><img src="dhuhr.jpeg" alt="Dhuhr Prayer" class="w-full h-48 object-cover"><div class="overlay absolute inset-0 bg-black bg-opacity-40 transition-all duration-300 flex items-center justify-center"><h3 class="overlay-text text-white text-3xl font-bold">Dhuhr</h3></div></div></a>
+                    <div class="p-6"><h4 class="text-xl font-bold mb-2">Dhuhr (Midday Prayer)</h4><p class="text-gray-600 mb-4">A moment to pause from our daily work and remember our creator.</p><a href="#dhuhr" onclick="showPage('dhuhr')" class="text-blue-600 hover:underline font-semibold">Learn More &rarr;</a></div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <a href="#asr" onclick="showPage('asr')" class="block prayer-card-image"><div class="relative"><img src="asar.jpeg" alt="Asr Prayer" class="w-full h-48 object-cover"><div class="overlay absolute inset-0 bg-black bg-opacity-40 transition-all duration-300 flex items-center justify-center"><h3 class="overlay-text text-white text-3xl font-bold">Asr</h3></div></div></a>
+                    <div class="p-6"><h4 class="text-xl font-bold mb-2">Asr (Afternoon Prayer)</h4><p class="text-gray-600 mb-4">A time for reflection as the day begins to wind down.</p><a href="#asr" onclick="showPage('asr')" class="text-blue-600 hover:underline font-semibold">Learn More &rarr;</a></div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <a href="#maghrib" onclick="showPage('maghrib')" class="block prayer-card-image"><div class="relative"><img src="maghrib.jpeg" alt="Maghrib Prayer" class="w-full h-48 object-cover"><div class="overlay absolute inset-0 bg-black bg-opacity-40 transition-all duration-300 flex items-center justify-center"><h3 class="overlay-text text-white text-3xl font-bold">Maghrib</h3></div></div></a>
+                    <div class="p-6"><h4 class="text-xl font-bold mb-2">Maghrib (Sunset Prayer)</h4><p class="text-gray-600 mb-4">Marks the end of the day and a time to show gratitude.</p><a href="#maghrib" onclick="showPage('maghrib')" class="text-blue-600 hover:underline font-semibold">Learn More &rarr;</a></div>
+                </div>
+                <div class="card bg-white rounded-lg shadow-lg overflow-hidden">
+                     <a href="#isha" onclick="showPage('isha')" class="block prayer-card-image"><div class="relative"><img src="isha.jpeg" alt="Isha Prayer" class="w-full h-48 object-cover"><div class="overlay absolute inset-0 bg-black bg-opacity-40 transition-all duration-300 flex items-center justify-center"><h3 class="overlay-text text-white text-3xl font-bold">Isha</h3></div></div></a>
+                    <div class="p-6"><h4 class="text-xl font-bold mb-2">Isha (Night Prayer)</h4><p class="text-gray-600 mb-4">A moment of peace and seeking forgiveness before rest.</p><a href="#isha" onclick="showPage('isha')" class="text-blue-600 hover:underline font-semibold">Learn More &rarr;</a></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Fajr Page -->
+        <div id="fajr" class="content-section">
+            <section class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4">Fajr: The Dawn Prayer</h2>
+                <img src="001.png" alt="Mosque at Dawn" class="w-full h-64 object-cover rounded-lg mb-6 shadow-md page-image">
+                <p class="text-gray-700 leading-relaxed mb-4">The Fajr prayer is a beautiful start to the day, consisting of two obligatory (Fard) rak'ahs. It is performed between the break of dawn and sunrise. The Quran emphasizes its importance: "And establish prayer at the two ends of the day and at the approach of the night..." (Quran 11:114).</p>
+                <blockquote class="bg-gray-100 border-l-4 border-blue-500 text-gray-700 p-4 my-6"><p class="italic">The Messenger of Allah (ﷺ) said, "Whoever prays the two cool prayers (Asr and Fajr) will go to Paradise."</p><footer class="text-right mt-2 not-italic text-sm font-semibold">- Sahih al-Bukhari 574</footer></blockquote>
+                <h3 class="text-2xl font-semibold mb-2">Benefits and Significance:</h3>
+                <ul class="list-disc list-inside text-gray-700 leading-relaxed"><li><strong>Spiritual Refreshment:</strong> Starting the day with the remembrance of Allah brings immense peace and sets a positive tone.</li><li><strong>Protection from Shaitan:</strong> The Prophet Muhammad (peace be upon him) said that whoever prays Fajr is under the protection of Allah.</li><li><strong>Witnessed by Angels:</strong> The angels of the night and the day witness the Fajr prayer, making it a particularly blessed time.</li><li><strong>Better than the World:</strong> The two Sunnah rak'ahs before the Fard of Fajr are described by the Prophet (PBUH) as being "better than this world and all that it contains."</li></ul>
+            </section>
+        </div>
+
+        <!-- Dhuhr Page -->
+        <div id="dhuhr" class="content-section">
+            <section class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4">Dhuhr: The Midday Prayer</h2>
+                <img src="002.png" alt="Mosque at Midday" class="w-full h-64 object-cover rounded-lg mb-6 shadow-md page-image">
+                <p class="text-gray-700 leading-relaxed mb-4">The Dhuhr prayer consists of four obligatory (Fard) rak'ahs and is performed when the sun passes its highest point. This prayer provides a crucial spiritual break in the middle of our worldly engagements.</p>
+                <blockquote class="bg-gray-100 border-l-4 border-yellow-500 text-gray-700 p-4 my-6"><p class="italic">The Prophet (ﷺ) used to pray four rak'ahs before the Dhuhr prayer and he said, "This is an hour at which the gates of heaven are opened, and I like that a good deed of mine should be presented to Allah at this time."</p><footer class="text-right mt-2 not-italic text-sm font-semibold">- Jami` at-Tirmidhi 478</footer></blockquote>
+                <h3 class="text-2xl font-semibold mb-2">Benefits and Significance:</h3>
+                <ul class="list-disc list-inside text-gray-700 leading-relaxed"><li><strong>A Moment of Peace:</strong> It offers a tranquil pause from the stress and demands of work or study.</li><li><strong>Renewed Focus:</strong> It helps in refocusing our intentions and actions towards pleasing Allah.</li><li><strong>Forgiveness of Sins:</strong> Regular observance of prayers serves as an expiation for minor sins.</li><li><strong>A Blessed Hour:</strong> It is a time when the gates of Heaven are open, making it an opportune moment for worship.</li></ul>
+            </section>
+        </div>
+
+        <!-- Asr Page -->
+        <div id="asr" class="content-section">
+            <section class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4">Asr: The Afternoon Prayer</h2>
+                <img src="003.png" alt="Mosque in the Afternoon" class="w-full h-64 object-cover rounded-lg mb-6 shadow-md page-image">
+                <p class="text-gray-700 leading-relaxed mb-4">The Asr prayer, with four obligatory (Fard) rak'ahs, is often referred to as the 'middle prayer' and holds special significance in the Quran: "Guard strictly the prayers, especially the middle prayer..." (Quran 2:238).</p>
+                <blockquote class="bg-gray-100 border-l-4 border-orange-500 text-gray-700 p-4 my-6"><p class="italic">The Prophet (ﷺ) said, "Whoever misses the Asr prayer (intentionally) then it is as if he lost his family and property."</p><footer class="text-right mt-2 not-italic text-sm font-semibold">- Sahih al-Bukhari 552</footer></blockquote>
+                <h3 class="text-2xl font-semibold mb-2">Benefits and Significance:</h3>
+                <ul class="list-disc list-inside text-gray-700 leading-relaxed"><li><strong>A Sign of Strong Faith:</strong> Performing Asr on time, despite afternoon engagements, is a sign of strong commitment.</li><li><strong>Divine Reward:</strong> The Hadith highlights the immense loss in missing this prayer, underscoring its value.</li><li><strong>Connection with Angels:</strong> Similar to Fajr, the Asr prayer is witnessed by angels who report the believers' deeds.</li></ul>
+            </section>
+        </div>
+
+        <!-- Maghrib Page -->
+        <div id="maghrib" class="content-section">
+            <section class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4">Maghrib: The Sunset Prayer</h2>
+                <img src="004.png" alt="Mosque at Sunset" class="w-full h-64 object-cover rounded-lg mb-6 shadow-md page-image">
+                <p class="text-gray-700 leading-relaxed mb-4">The Maghrib prayer is offered just after sunset and consists of three obligatory (Fard) rak'ahs. It is a time of transition, marking the end of the day and the beginning of the night.</p>
+                <blockquote class="bg-gray-100 border-l-4 border-red-500 text-gray-700 p-4 my-6"><p class="italic">The Messenger of Allah (ﷺ) said: "My Ummah will not cease to be upon good as long as they do not delay Maghrib until the stars appear."</p><footer class="text-right mt-2 not-italic text-sm font-semibold">- Sunan Ibn Majah 689</footer></blockquote>
+                <h3 class="text-2xl font-semibold mb-2">Benefits and Significance:</h3>
+                <ul class="list-disc list-inside text-gray-700 leading-relaxed"><li><strong>Gratitude for the Day:</strong> Maghrib is an opportunity to thank Allah for the blessings received throughout the day.</li><li><strong>Acceptance of Dua:</strong> The time around sunset is considered a blessed time when supplications are more likely to be accepted.</li><li><strong>Promptness in Worship:</strong> This prayer teaches the importance of being prompt in fulfilling our religious duties.</li></ul>
+            </section>
+        </div>
+
+        <!-- Isha Page -->
+        <div id="isha" class="content-section">
+            <section class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4">Isha: The Night Prayer</h2>
+                <img src="005.png" alt="Mosque at Night" class="w-full h-64 object-cover rounded-lg mb-6 shadow-md page-image">
+                <p class="text-gray-700 leading-relaxed mb-4">The Isha prayer, consisting of four obligatory (Fard) rak'ahs, is the final prayer of the day. It provides a peaceful conclusion, allowing believers to seek forgiveness and solace before sleeping.</p>
+                <blockquote class="bg-gray-100 border-l-4 border-gray-700 text-gray-700 p-4 my-6"><p class="italic">I heard the Messenger of Allah (ﷺ) say: 'Whoever offers the Isha prayer in congregation, it is as if he has prayed for half the night. And whoever offers the Fajr prayer in congregation, it is as if he has prayed for the whole night.'</p><footer class="text-right mt-2 not-italic text-sm font-semibold">- Sahih Muslim 656a</footer></blockquote>
+                <h3 class="text-2xl font-semibold mb-2">Benefits and Significance:</h3>
+                <ul class="list-disc list-inside text-gray-700 leading-relaxed"><li><strong>Immense Reward:</strong> The Hadith illustrates the incredible reward for praying Isha and Fajr in congregation.</li><li><strong>Peace Before Sleep:</strong> It calms the mind and soul, helping one to disconnect from worldly worries.</li><li><strong>Protection Through the Night:</strong> It serves as a spiritual shield, providing a sense of security and peace.</li></ul>
+            </section>
+        </div>
+
+        <!-- Message Page -->
+        <div id="message" class="content-section">
+            <section class="bg-white p-8 rounded-lg shadow-lg">
+                <h2 class="text-3xl font-bold mb-4">A Message on Consistency in Prayer</h2>
+                <img src="001.png" alt="The Holy Kaaba" class="w-full h-64 object-cover rounded-lg mb-6 shadow-md page-image">
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    The five daily prayers are the bedrock of our faith and our direct line to Allah (SWT). They are not just rituals, but moments of peace, reflection, and gratitude that structure our day around the remembrance of our Creator. Making Salah a consistent, non-negotiable part of our daily routine is the key to unlocking its countless blessings.
+                </p>
+                <p class="text-gray-700 leading-relaxed mb-4">
+                    Let each prayer be a source of strength, a cleansing of the heart, and a step closer to Jannah. Let us not view it as a burden, but as a gift and a mercy from Allah.
+                </p>
+                
+                <blockquote class="bg-gray-100 border-l-4 border-green-600 text-gray-700 p-4 my-6">
+                    <p class="italic">The Messenger of Allah (ﷺ) said: "The first matter that the slave will be brought to account for on the Day of Judgment is the prayer. If it is sound, then the rest of his deeds will be sound. And if it is bad, then the rest of his deeds will be bad."</p>
+                    <footer class="text-right mt-2 not-italic text-sm font-semibold">- At-Tabarani, graded as Sahih by Al-Albani</footer>
+                </blockquote>
+
+                <p class="text-gray-700 leading-relaxed mt-6">
+                    May Allah make us among those who establish the prayer with sincerity and devotion. Ameen.
+                </p>
+            </section>
+        </div>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12">
+        <div class="container mx-auto px-6 py-4 text-center text-gray-600">
+            <p>&copy; 2024 The Holy Grace of Prayers. All Rights Reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        const mobileMenuButton = document.getElementById('mobile-menu-button');
+        const mobileMenu = document.getElementById('mobile-menu');
+
+        mobileMenuButton.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        function showPage(pageId) {
+            // Hide all content sections
+            document.querySelectorAll('.content-section').forEach(section => {
+                section.classList.remove('active');
+            });
+
+            // Show the selected content section
+            const page = document.getElementById(pageId);
+            if (page) {
+                page.classList.add('active');
+            } else {
+                // Default to home if page not found
+                document.getElementById('home').classList.add('active');
+            }
+
+            // Update active link styling
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href') === '#' + pageId) {
+                    link.classList.add('active');
+                }
+            });
+            
+            // Close mobile menu after selection
+            if (!mobileMenu.classList.contains('hidden')) {
+                mobileMenu.classList.add('hidden');
+            }
+
+            // Update URL hash
+            window.location.hash = pageId;
+
+            // Scroll to top of the page
+            window.scrollTo(0, 0);
+        }
+
+        // Handle hash changes for back/forward navigation
+        window.addEventListener('hashchange', () => {
+            const pageId = window.location.hash.substring(1) || 'home';
+            showPage(pageId);
+        });
+
+        // Initial page load
+        document.addEventListener('DOMContentLoaded', () => {
+            const pageId = window.location.hash.substring(1) || 'home';
+            showPage(pageId);
+        });
+    </script>
+</body>
+</html>
